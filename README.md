@@ -35,6 +35,7 @@ tr A-Z a-z < all.tokenized.txt > all.tokenized.txt.low
 - progressbar2
 - nltk
   - And, download tokenizers by `python -c "import nltk;nltk.download('punkt')"`
+- html2text
 
 
 ## Acknowledgement
