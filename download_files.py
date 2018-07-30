@@ -30,6 +30,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--out-dir', '--out', type=str, required=True)
 parser.add_argument('--list-path', '--list', type=str, required=True)
 parser.add_argument('--trash-bad-count', action='store_true', default=False)
+parser.add_argument('--languages', '--langs', '--lang',
+                    nargs='+', type=str, default=['English'])
 args = parser.parse_args()
 
 
@@ -67,6 +69,14 @@ def main():
         try:
             # {"page": "https://www.smashwords.com/books/view/52", "epub": "https://www.smashwords.com/books/download/52/8/latest/0/0/smashwords-style-guide.epub", "title": "Smashwords Style Guide", "author": "Mark Coker", "genres": ["Nonfiction\tComputers and Internet\tDigital publishing", "Nonfiction\tPublishing\tSelf-publishing"], "publish": "May 05, 2008", "num_words": 28300, "b_idx": 1}
             data = json.loads(line.strip())
+
+            if 'lang' not in data:
+                raise Exception('Language filter is available '
+                                'when the url list has lang information. '
+                                'Please regenerate url list with the latest script.')
+            if data['lang'] not in args.languages:
+                continue
+
             _, book_id = os.path.split(data['page'])
             _, file_name = os.path.split(data['epub'])
 

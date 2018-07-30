@@ -16,7 +16,7 @@ python -u download_list.py > url_list.jsonl &
 Download their files. Download `txt` if possible. Otherwise, try to extract text from `epub`. `--trash-bad-count` filters out `epub` files whose word count is largely different from its official stat.
 
 ```
-python download_files.py --list url_list.jsonl --out out_txts --trash-bad-count
+python download_files.py --list url_list.jsonl --out out_txts --trash-bad-count --lang English
 ```
 
 Make concatenated text with sentence-per-line format.
