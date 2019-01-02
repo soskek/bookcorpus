@@ -1,9 +1,11 @@
 # Homemade BookCorpus
 
-[BookCorpus](http://yknzhu.wixsite.com/mbweb) is a popular text corpus, espetially for unsupervised learning of sentence encoders/decoders. However, usage of BookCorpus is limited and no longer distributed.
+You can reproduce BookCorpus by yourself.
 
-This repository includes a crawler collecting data from [smashwords.com](https://www.smashwords.com/books/category/1/downloads/0/free/medium/0), which is the original source of the BookCorpus.
-Collected sentences may partially differ but the number of them will be larger or almost same.
+[BookCorpus](http://yknzhu.wixsite.com/mbweb) is a popular large-scale text corpus, espetially for unsupervised learning of sentence encoders/decoders. However, BookCorpus is no longer distributed...
+
+This repository includes a crawler collecting data from [smashwords.com](https://www.smashwords.com/books/category/1/downloads/0/free/medium/0), which is the original source of BookCorpus.
+Collected sentences may partially differ but the number of them will be larger or almost the same.
 
 
 ## How to use
