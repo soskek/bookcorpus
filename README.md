@@ -1,8 +1,9 @@
 # Homemade BookCorpus
 
-[BookCorpus](http://yknzhu.wixsite.com/mbweb) is a popular text corpus, espetially for unsupervised learning of sentence encoders/decoders. But, usage of BookCorpus is limited.
+[BookCorpus](http://yknzhu.wixsite.com/mbweb) is a popular text corpus, espetially for unsupervised learning of sentence encoders/decoders. However, usage of BookCorpus is limited and no longer distributed.
 
-This is an unofficial repository for collecting data from [smashwords.com](https://www.smashwords.com/books/category/1/downloads/0/free/medium/0), which is an original source.
+This repository includes a crawler collecting data from [smashwords.com](https://www.smashwords.com/books/category/1/downloads/0/free/medium/0), which is the original source of the BookCorpus.
+Collected sentences may partially differ but the number of them will be larger or almost same.
 
 
 ## How to use
@@ -13,7 +14,7 @@ Prepare downloaded URLs.
 python -u download_list.py > url_list.jsonl &
 ```
 
-Download their files. Download `txt` if possible. Otherwise, try to extract text from `epub`. `--trash-bad-count` filters out `epub` files whose word count is largely different from its official stat.
+Download their files. Download `txt` if possible. Otherwise, try to extract text from `epub`. The additional argument `--trash-bad-count` filters out `epub` files whose word count is largely different from its official stat.
 
 ```
 python download_files.py --list url_list.jsonl --out out_txts --trash-bad-count
@@ -21,11 +22,10 @@ python download_files.py --list url_list.jsonl --out out_txts --trash-bad-count
 
 Make concatenated text with sentence-per-line format.
 
-And, tokenize them into segmented words.
+And, tokenize them into segmented words by nltk.
 
 ```
 python make_sentlines.py out_txts | python tokenize_sentlines.py > all.tokenized.txt
-tr A-Z a-z < all.tokenized.txt > all.tokenized.txt.low
 ```
 
 ## Requirement
@@ -45,6 +45,8 @@ tr A-Z a-z < all.tokenized.txt > all.tokenized.txt.low
 
 ## Citation
 
+Yukun Zhu, Ryan Kiros, Richard Zemel, Ruslan Salakhutdinov, Raquel Urtasun, Antonio Torralba, Sanja Fidler. **"Aligning Books and Movies: Towards Story-like Visual Explanations by Watching Movies and Reading Books."** arXiv preprint arXiv:1506.06724 (2015).
+
 ```
 @InProceedings{Zhu_2015_ICCV,
     title = {Aligning Books and Movies: Towards Story-Like Visual Explanations by Watching Movies and Reading Books},
@@ -61,5 +63,16 @@ tr A-Z a-z < all.tokenized.txt > all.tokenized.txt.low
     author = {Yukun Zhu and Ryan Kiros and Richard Zemel and Ruslan Salakhutdinov and Raquel Urtasun and Antonio Torralba and Sanja Fidler},
     booktitle = {arXiv preprint arXiv:1506.06724},
     year = {2015}
+}
+```
+
+Ryan Kiros, Yukun Zhu, Ruslan Salakhutdinov, Richard S. Zemel, Antonio Torralba, Raquel Urtasun, and Sanja Fidler. **"Skip-Thought Vectors."** arXiv preprint arXiv:1506.06726 (2015).
+
+```
+@article{kiros2015skip,
+    title={Skip-Thought Vectors},
+    author={Kiros, Ryan and Zhu, Yukun and Salakhutdinov, Ruslan and Zemel, Richard S and Torralba, Antonio and Urtasun, Raquel and Fidler, Sanja},
+    journal={arXiv preprint arXiv:1506.06726},
+    year={2015}
 }
 ```
