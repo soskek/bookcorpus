@@ -44,6 +44,11 @@ search_urls = [search_url_pt.format(i) for i in range(0, 18340 + 1, 20)]
 
 num_words_pt = re.compile(r'Words: (\d+)')
 pub_date_pt = re.compile(r'Published: ([\w\.]+\s[\d]+,\s[\d]+)')
+lang_pt = re.compile(r'Language: (\w+)')
+# Language: Spanish
+
+target_langs = []
+# if you want text only in selected languages, write them. e.g. ['English']
 
 
 def main():
@@ -73,14 +78,23 @@ def main():
             if not meta_infos:
                 sys.stderr.write('Failed: meta_info {}\n'.format(b_url))
                 continue
-            meta_txts = [
-                m.text for m in meta_infos
-                if 'Language: English' in m.text]
+
+            # get lang
+            meta_txts = []
+            for m in meta_infos:
+                match = lang_pt.search(m.text)
+                if match:
+                    lang = match.group(1)
+                    meta_txts.append(m.text)
+                    break
+            else:
+                sys.stderr.write('Failed: language {}\n'.format(b_url))
+                continue
 
             # check lang
-            is_english = len(meta_txts) >= 1
-            if not is_english:
-                continue
+            if target_langs:
+                if lang not in target_langs:
+                    continue
 
             # get num words
             meta_txt = meta_txts[0].replace(',', '')
@@ -173,6 +187,7 @@ def main():
                 'page': b_url,
                 'epub': epub_url,
                 'txt': txt_url,
+                'lang': lang,
                 'title': title,
                 'author': author,
                 'genres': genres,
