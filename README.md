@@ -10,7 +10,7 @@ Collected sentences may partially differ but the number of them will be larger o
 
 ## How to use
 
-Prepare URLs of available books.
+Prepare URLs of available books. However, this repository already has a list as `url_list.jsonl` which was a snapshot I (@soskek) collected on Jan 19-20, 2019. You can use it if you'd like.
 
 ```
 python -u download_list.py > url_list.jsonl &
@@ -55,7 +55,7 @@ python make_sentlines.py out_txts | python tokenize_sentlines.py > all.tokenized
 
 ## Citation
 
-Yukun Zhu, Ryan Kiros, Richard Zemel, Ruslan Salakhutdinov, Raquel Urtasun, Antonio Torralba, Sanja Fidler. **"Aligning Books and Movies: Towards Story-like Visual Explanations by Watching Movies and Reading Books."** arXiv preprint arXiv:1506.06724 (2015).
+Yukun Zhu, Ryan Kiros, Richard Zemel, Ruslan Salakhutdinov, Raquel Urtasun, Antonio Torralba, Sanja Fidler. **"[Aligning Books and Movies: Towards Story-like Visual Explanations by Watching Movies and Reading Books.](https://arxiv.org/abs/1506.06724)"** arXiv preprint arXiv:1506.06724, [ICCV 2015](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zhu_Aligning_Books_and_ICCV_2015_paper.pdf).
 
 ```
 @InProceedings{Zhu_2015_ICCV,
@@ -76,7 +76,7 @@ Yukun Zhu, Ryan Kiros, Richard Zemel, Ruslan Salakhutdinov, Raquel Urtasun, Anto
 }
 ```
 
-Ryan Kiros, Yukun Zhu, Ruslan Salakhutdinov, Richard S. Zemel, Antonio Torralba, Raquel Urtasun, and Sanja Fidler. **"Skip-Thought Vectors."** arXiv preprint arXiv:1506.06726 (2015).
+Ryan Kiros, Yukun Zhu, Ruslan Salakhutdinov, Richard S. Zemel, Antonio Torralba, Raquel Urtasun, and Sanja Fidler. **"[Skip-Thought Vectors.](https://arxiv.org/abs/1506.06726)"** arXiv preprint arXiv:1506.06726, [NIPS 2015](https://papers.nips.cc/paper/5950-skip-thought-vectors.pdf).
 
 ```
 @article{kiros2015skip,
