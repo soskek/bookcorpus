@@ -24,6 +24,7 @@ from bs4 import BeautifulSoup
 import os
 import datetime
 import json
+from progressbar import ProgressBar
 
 # If you wanna use some info, write them.
 REQUIRED = [
@@ -55,8 +56,7 @@ def main():
     sys.stderr.write(str(datetime.datetime.now()) + '\n')
 
     book_index = 0
-
-    for i, s_url in enumerate(search_urls):
+    for i, s_url in enumerate(ProgressBar()(search_urls)):
         time.sleep(SLEEP_SEC)
         for try_count in range(MAX_OPEN_COUNT):
             try:
