@@ -90,8 +90,8 @@ def main():
                     sys.stderr.write('{}: {}\n'.format(
                         type(e).__name__, str(e)))
                     time.sleep(RETRY_SLEEP_SEC)
-                else:
-                    sys.stderr.write(' Gave up to open {}\n'.format(b_url))
+            else:
+                sys.stderr.write(' Gave up to open {}\n'.format(b_url))
 
             body = response.read()
             soup = BeautifulSoup(body, 'lxml')
