@@ -10,13 +10,13 @@ Collected sentences may partially differ but the number of them will be larger o
 
 ## How to use
 
-Prepare downloaded URLs.
+Prepare URLs of available books.
 
 ```
 python -u download_list.py > url_list.jsonl &
 ```
 
-Download their files. Download `txt` if possible. Otherwise, try to extract text from `epub`. The additional argument `--trash-bad-count` filters out `epub` files whose word count is largely different from its official stat.
+Download their files. Downloading is performed for `txt` files if possible. Otherwise, this tries to extract text from `epub`. The additional argument `--trash-bad-count` filters out `epub` files whose word count is largely different from its official stat (because it may imply some failure).
 
 ```
 python download_files.py --list url_list.jsonl --out out_txts --trash-bad-count
@@ -24,7 +24,11 @@ python download_files.py --list url_list.jsonl --out out_txts --trash-bad-count
 
 Make concatenated text with sentence-per-line format.
 
-And, tokenize them into segmented words by nltk.
+```
+python make_sentlines.py out_txts > all.txt
+```
+
+If you want to tokenize them into segmented words by nltk, run the below. You can use another choices for this by yourself.
 
 ```
 python make_sentlines.py out_txts | python tokenize_sentlines.py > all.tokenized.txt
@@ -39,6 +43,10 @@ python make_sentlines.py out_txts | python tokenize_sentlines.py > all.tokenized
   - And, download tokenizers by `python -c "import nltk;nltk.download('punkt')"`
 - html2text
 
+
+## Note
+
+- It is expected some error messages like `Failed: epub and txt` are sometimes displayed. This code does not adapt to some of books in the smashwords.com (e.g. `You set the price!` books).
 
 ## Acknowledgement
 

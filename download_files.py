@@ -25,6 +25,9 @@ from glob import glob
 import sys
 import json
 
+SLEEP_SEC = 0.05
+RETRY_SLEEP_SEC = 0.5
+MAX_OPEN_COUNT = 2
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--out-dir', '--out', type=str, required=True)
@@ -57,7 +60,7 @@ def main():
 
     done_files = set([os.path.split(path)[-1]
                       for path in glob(os.path.join(out_dir, '*.txt'))])
-    sys.stderr.write('{} files already had been saved in {}.\n'.format(
+    sys.stderr.write('{} files had already been saved in {}.\n'.format(
         len(done_files), out_dir))
 
     for i, line in enumerate(ProgressBar()(lines)):
@@ -77,13 +80,43 @@ def main():
                 continue
             if data['txt']:
                 # try to download .txt file
-                response = opener.open(data['txt'])
+                for try_count in range(MAX_OPEN_COUNT):
+                    try:
+                        response = opener.open(data['txt'])
+                        if try_count >= 1:
+                            sys.stderr.write(
+                                'Succeeded in opening {}\n'.format(data['txt']))
+                        break  # success
+                    except Exception as e:
+                        sys.stderr.write(
+                            'Failed to open {}\n'.format(data['txt']))
+                        sys.stderr.write(
+                            '{}: {}\n'.format(type(e).__name__, str(e)))
+                        time.sleep(RETRY_SLEEP_SEC)
+                else:
+                    sys.stderr.write(
+                        ' Gave up to open {}\n'.format(data['txt']))
                 txt = response.read().decode('utf-8', 'ignore')
                 write_txt(txt, out_path, None)
             else:
                 # revenge by converting .epub to .txt
                 tmp_path = os.path.join(out_dir, file_name)
-                urlretrieve(data['epub'], tmp_path)  # download epub
+                for try_count in range(MAX_OPEN_COUNT):
+                    try:
+                        urlretrieve(data['epub'], tmp_path)  # download epub
+                        if try_count >= 1:
+                            sys.stderr.write(
+                                'Succeeded in opening {}\n'.format(data['epub']))
+                        break  # success
+                    except Exception as e:
+                        sys.stderr.write(
+                            'Failed to open {}\n'.format(data['epub']))
+                        sys.stderr.write(
+                            '{}: {}\n'.format(type(e).__name__, str(e)))
+                        time.sleep(RETRY_SLEEP_SEC)
+                else:
+                    sys.stderr.write(
+                        ' Gave up to open {}\n'.format(data['epub']))
                 txt = epub2txt.epub2txt(tmp_path).convert()
                 if args.trash_bad_count:
                     if 'num_words' in data:
