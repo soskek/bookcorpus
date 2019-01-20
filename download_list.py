@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import sys
 import time
 import re
@@ -39,6 +38,10 @@ REQUIRED = [
     'b_idx',
 ]
 
+SLEEP_SEC = 0.05
+RETRY_SLEEP_SEC = 0.5
+MAX_OPEN_COUNT = 2
+
 search_url_pt = 'https://www.smashwords.com/books/category/1/downloads/0/free/medium/{}'
 search_urls = [search_url_pt.format(i) for i in range(0, 18340 + 1, 20)]
 
@@ -54,8 +57,19 @@ def main():
     book_index = 0
 
     for i, s_url in enumerate(search_urls):
-        # print('#', i, s_url)
-        response = opener.open(s_url)
+        time.sleep(SLEEP_SEC)
+        for try_count in range(MAX_OPEN_COUNT):
+            try:
+                response = opener.open(s_url)
+                if try_count >= 1:
+                    sys.stderr.write('Succeeded in opening {}\n'.format(s_url))
+                break  # success
+            except Exception as e:
+                sys.stderr.write('Failed to open {}\n'.format(s_url))
+                sys.stderr.write('{}: {}\n'.format(type(e).__name__, str(e)))
+                time.sleep(RETRY_SLEEP_SEC)
+        else:
+            sys.stderr.write(' Gave up to open {}\n'.format(s_url))
         body = response.read()
         soup = BeautifulSoup(body, 'lxml')
 
@@ -64,7 +78,21 @@ def main():
         for b_link in book_links:
             book_index += 1
             b_url = b_link.get('href')
-            response = opener.open(b_url)
+            for try_count in range(MAX_OPEN_COUNT):
+                try:
+                    response = opener.open(b_url)
+                    if try_count >= 1:
+                        sys.stderr.write(
+                            'Succeeded in opening {}\n'.format(b_url))
+                    break  # success
+                except Exception as e:
+                    sys.stderr.write('Failed to open {}\n'.format(b_url))
+                    sys.stderr.write('{}: {}\n'.format(
+                        type(e).__name__, str(e)))
+                    time.sleep(RETRY_SLEEP_SEC)
+                else:
+                    sys.stderr.write(' Gave up to open {}\n'.format(b_url))
+
             body = response.read()
             soup = BeautifulSoup(body, 'lxml')
 
