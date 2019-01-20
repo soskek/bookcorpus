@@ -44,7 +44,7 @@ RETRY_SLEEP_SEC = 0.5
 MAX_OPEN_COUNT = 2
 
 search_url_pt = 'https://www.smashwords.com/books/category/1/downloads/0/free/medium/{}'
-search_urls = [search_url_pt.format(i) for i in range(0, 18340 + 1, 20)]
+search_urls = [search_url_pt.format(i) for i in range(0, 24000 + 1, 20)]
 
 num_words_pt = re.compile(r'Words: (\d+)')
 pub_date_pt = re.compile(r'Published: ([\w\.]+\s[\d]+,\s[\d]+)')
