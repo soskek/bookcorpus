@@ -43,6 +43,12 @@ python make_sentlines.py out_txts | python tokenize_sentlines.py > all.tokenized
   - And, download tokenizers by `python -c "import nltk;nltk.download('punkt')"`
 - html2text
 
+To install the requirements, run the following with pip on python3:
+```
+pip install -r requirements.txt
+python -c "import nltk;nltk.download('punkt')"
+```
+
 
 ## Note
 
