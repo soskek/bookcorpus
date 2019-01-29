@@ -1,0 +1,4 @@
+beautifulsoup4>=4.6.3
+html2text>=2018.1.9
+nltk>=3.4
+progressbar>=2.5
