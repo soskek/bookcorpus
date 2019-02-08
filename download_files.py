@@ -26,6 +26,7 @@ import sys
 import json
 
 SLEEP_SEC = 0.05
+SUCCESS_SLEEP_SEC = 0.001
 RETRY_SLEEP_SEC = 0.5
 MAX_OPEN_COUNT = 2
 
@@ -86,6 +87,7 @@ def main():
                         if try_count >= 1:
                             sys.stderr.write(
                                 'Succeeded in opening {}\n'.format(data['txt']))
+                        time.sleep(SUCCESS_SLEEP_SEC)
                         break  # success
                     except Exception as e:
                         sys.stderr.write(
@@ -107,6 +109,7 @@ def main():
                         if try_count >= 1:
                             sys.stderr.write(
                                 'Succeeded in opening {}\n'.format(data['epub']))
+                        time.sleep(SUCCESS_SLEEP_SEC)
                         break  # success
                     except Exception as e:
                         sys.stderr.write(
