@@ -8,22 +8,18 @@ file_dir = sys.argv[1]
 
 
 def convert_into_sentences(lines):
-    blank = 0
     stack = []
     sent_L = []
     n_sent = 0
     for chunk in lines:
         if not chunk.strip():
-            blank += 1
-            if blank >= 2:
-                if stack:
-                    sents = sent_tokenize(
-                        " ".join(stack).strip().replace('\n', ' '))
-                    sent_L.extend(sents)
-                    n_sent += len(sents)
-                    sent_L.append('\n')
-                    stack = []
-                blank = 0
+            if stack:
+                sents = sent_tokenize(
+                    " ".join(stack).strip().replace('\n', ' '))
+                sent_L.extend(sents)
+                n_sent += len(sents)
+                sent_L.append('\n')
+                stack = []
             continue
         stack.append(chunk.strip())
 
