@@ -2,7 +2,7 @@ import os
 import sys
 from glob import glob
 
-from nltk.tokenize import sent_tokenize
+from blingfire import text_to_sentences
 
 file_dir = sys.argv[1]
 
@@ -14,8 +14,8 @@ def convert_into_sentences(lines):
     for chunk in lines:
         if not chunk.strip():
             if stack:
-                sents = sent_tokenize(
-                    " ".join(stack).strip().replace('\n', ' '))
+                sents = text_to_sentences(
+                    " ".join(stack).strip().replace('\n', ' ')).split('\n')
                 sent_L.extend(sents)
                 n_sent += len(sents)
                 sent_L.append('\n')
@@ -24,10 +24,12 @@ def convert_into_sentences(lines):
         stack.append(chunk.strip())
 
     if stack:
-        sents = sent_tokenize(" ".join(stack).strip().replace('\n', ' '))
+        sents = text_to_sentences(
+            " ".join(stack).strip().replace('\n', ' ')).split('\n')
         sent_L.extend(sents)
         n_sent += len(sents)
     return sent_L, n_sent
+
 
 file_list = list(sorted(glob(os.path.join(file_dir, '*.txt'))))
 
