@@ -17,6 +17,8 @@ except ImportError:
     opener = urllib.request.build_opener(
         urllib.request.HTTPCookieProcessor(cj))
     urlretrieve = urllib.request.urlretrieve
+    import ssl
+    ssl._create_default_https_context = ssl._create_unverified_context
 
 import epub2txt
 import os
