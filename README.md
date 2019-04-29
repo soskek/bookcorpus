@@ -28,7 +28,7 @@ Make concatenated text with sentence-per-line format.
 python make_sentlines.py out_txts > all.txt
 ```
 
-If you want to tokenize them into segmented words by nltk, run the below. You can use another choices for this by yourself.
+If you want to tokenize them into segmented words by Microsoft's [BlingFire](https://github.com/Microsoft/BlingFire), run the below. You can use another choices for this by yourself.
 
 ```
 python make_sentlines.py out_txts | python tokenize_sentlines.py > all.tokenized.txt
@@ -39,14 +39,11 @@ python make_sentlines.py out_txts | python tokenize_sentlines.py > all.tokenized
 - python3 is recommended
 - beautifulsoup4
 - progressbar2
-- nltk
-  - And, download tokenizers by `python -c "import nltk;nltk.download('punkt')"`
+- blingfire
 - html2text
 
-To install the requirements, run the following with pip on python3:
 ```
 pip install -r requirements.txt
-python -c "import nltk;nltk.download('punkt')"
 ```
 
 

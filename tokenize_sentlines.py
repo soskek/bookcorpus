@@ -1,10 +1,9 @@
 import sys
-from nltk.tokenize import word_tokenize
+from blingfire import text_to_words
 
 
 for l in sys.stdin:
     if l.strip():
-        # print(' '.join(word_tokenize(l.strip()) + ["EOS"]))
-        print(' '.join(word_tokenize(l.strip())))
+        print(text_to_words(l.strip()))
     else:
         print('')
