@@ -41,6 +41,7 @@ python make_sentlines.py out_txts | python tokenize_sentlines.py > all.tokenized
 - progressbar2
 - blingfire
 - html2text
+- lxml
 
 ```
 pip install -r requirements.txt
