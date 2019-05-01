@@ -5,8 +5,7 @@ You can reproduce BookCorpus by yourself.
 [BookCorpus](http://yknzhu.wixsite.com/mbweb) is a popular large-scale text corpus, espetially for unsupervised learning of sentence encoders/decoders. However, BookCorpus is no longer distributed...
 
 This repository includes a crawler collecting data from [smashwords.com](https://www.smashwords.com/books/category/1/downloads/0/free/medium/0), which is the original source of BookCorpus.
-Collected sentences may partially differ but the number of them will be larger or almost the same.
-
+Collected sentences may partially **differ** but the number of them will be larger or almost the same. If you use the new corpus in your work, please specify that it is a replica.
 
 ## How to use
 
@@ -21,6 +20,11 @@ Download their files. Downloading is performed for `txt` files if possible. Othe
 ```
 python download_files.py --list url_list.jsonl --out out_txts --trash-bad-count
 ```
+
+The results are saved into the directory of `--out` (here, `out_txts`).
+
+
+### Postprocessing
 
 Make concatenated text with sentence-per-line format.
 
@@ -50,7 +54,7 @@ pip install -r requirements.txt
 
 ## Note
 
-- It is expected some error messages like `Failed: epub and txt` are sometimes displayed. This code does not adapt to some of books in the smashwords.com (e.g. `You set the price!` books).
+- It is expected some error messages like `Failed: epub and txt` are sometimes displayed. That's because this code does not adapt to some of books in the smashwords.com (e.g. `You set the price!` books).
 
 ## Acknowledgement
 
@@ -58,6 +62,10 @@ pip install -r requirements.txt
 
 
 ## Citation
+
+If you found this code useful, please cite it.
+
+Also, the original papers which made the original BookCorpus are as follows:
 
 Yukun Zhu, Ryan Kiros, Richard Zemel, Ruslan Salakhutdinov, Raquel Urtasun, Antonio Torralba, Sanja Fidler. **"[Aligning Books and Movies: Towards Story-like Visual Explanations by Watching Movies and Reading Books.](https://arxiv.org/abs/1506.06724)"** arXiv preprint arXiv:1506.06724, [ICCV 2015](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zhu_Aligning_Books_and_ICCV_2015_paper.pdf).
 
