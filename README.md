@@ -52,9 +52,9 @@ pip install -r requirements.txt
 ```
 
 
-## Note
+## Note on Errors
 
-- It is expected some error messages like `Failed: epub and txt` are sometimes displayed. That's because this code does not adapt to some of books in the smashwords.com (e.g. `You set the price!` books).
+- It is expected some error messages are shown, e.g., `Failed: epub and txt`, `File is not a zip file` or `Failed to open`. But, the number of failures will be much less than one of successes. Don't worry.
 
 ## Acknowledgement
 
