@@ -21,6 +21,12 @@ Download their files. Downloading is performed for `txt` files if possible. Othe
 python download_files.py --list url_list.jsonl --out out_txts --trash-bad-count
 ```
 
+or using the concurrent Version
+
+```
+python download_files_fast.py --list url_list.jsonl --out bookcorpus_raw_txts --trash-bad-count
+```
+
 The results are saved into the directory of `--out` (here, `out_txts`).
 
 
