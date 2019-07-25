@@ -69,7 +69,13 @@ def main():
             continue
         # read data
         try:
-            # {"page": "https://www.smashwords.com/books/view/52", "epub": "https://www.smashwords.com/books/download/52/8/latest/0/0/smashwords-style-guide.epub", "title": "Smashwords Style Guide", "author": "Mark Coker", "genres": ["Nonfiction\tComputers and Internet\tDigital publishing", "Nonfiction\tPublishing\tSelf-publishing"], "publish": "May 05, 2008", "num_words": 28300, "b_idx": 1}
+            # {"page": "https://www.smashwords.com/books/view/52",
+            #  "epub": "https://www.smashwords.com/books/download/52/8/latest/0/0/smashwords-style-guide.epub",
+            #  "title": "Smashwords Style Guide",
+            #  "author": "Mark Coker",
+            #  "genres": ["Nonfiction\tComputers and Internet\tDigital publishing",
+            #             "Nonfiction\tPublishing\tSelf-publishing"],
+            #  "publish": "May 05, 2008", "num_words": 28300, "b_idx": 1}
             data = json.loads(line.strip())
             _, book_id = os.path.split(data['page'])
             _, file_name = os.path.split(data['epub'])
