@@ -135,7 +135,7 @@ def main():
             # get genres
             genre_txts = soup.find_all(class_="category")
             if genre_txts:
-                genres = [g.text.replace('\u00a0\u00bb\u00a0', '\t')
+                genres = [g.text.replace('\u00a0\u00bb\u00a0', '\t').strip()
                           for g in genre_txts]
             elif 'genres' in REQUIRED:
                 sys.stderr.write('Failed: genre {}\n'.format(b_url))
