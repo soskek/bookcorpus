@@ -39,7 +39,7 @@ REQUIRED = [
     'b_idx',
 ]
 
-SLEEP_SEC = 0.05
+SLEEP_SEC = 0.1
 RETRY_SLEEP_SEC = 0.5
 MAX_OPEN_COUNT = 2
 
@@ -163,9 +163,10 @@ def main():
             else:
                 author = ''
 
+            # TODO: Using <div class="card" id="download"> and "epub"/"txt"
             # get epub
             epub_links = soup.find_all(
-                title="Nook, Kobo, Sony Reader, and tablets")
+                title="Supported by many apps and devices (e.g., Apple Books, Barnes and Noble Nook, Kobo, Google Play, etc.)")
             if epub_links:
                 epub_url = epub_links[0].get('href')
                 if epub_url:
@@ -183,7 +184,7 @@ def main():
 
             # get txt if possible
             txt_links = soup.find_all(
-                title="Archival; contains no formatting")
+                title="Plain text; contains no formatting")
             if not txt_links:
                 txt_url = ''
             else:

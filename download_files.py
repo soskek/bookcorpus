@@ -28,7 +28,7 @@ import json
 SLEEP_SEC = 0.05
 SUCCESS_SLEEP_SEC = 0.001
 RETRY_SLEEP_SEC = 0.5
-MAX_OPEN_COUNT = 2
+MAX_OPEN_COUNT = 3
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--out-dir', '--out', type=str, required=True)
