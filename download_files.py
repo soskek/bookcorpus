@@ -27,7 +27,7 @@ import json
 
 SLEEP_SEC = 0.05
 SUCCESS_SLEEP_SEC = 0.001
-RETRY_SLEEP_SEC = 0.5
+RETRY_SLEEP_SEC = 1.
 MAX_OPEN_COUNT = 3
 
 parser = argparse.ArgumentParser()

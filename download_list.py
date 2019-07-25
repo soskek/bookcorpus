@@ -40,8 +40,8 @@ REQUIRED = [
 ]
 
 SLEEP_SEC = 0.1
-RETRY_SLEEP_SEC = 0.5
-MAX_OPEN_COUNT = 2
+RETRY_SLEEP_SEC = 1.
+MAX_OPEN_COUNT = 3
 
 search_url_pt = 'https://www.smashwords.com/books/category/1/downloads/0/free/medium/{}'
 search_urls = [search_url_pt.format(i) for i in range(0, 24000 + 1, 20)]
