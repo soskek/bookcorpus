@@ -9,7 +9,7 @@ Collected sentences may partially **differ** but the number of them will be larg
 
 ## How to use
 
-Prepare URLs of available books. However, this repository already has a list as `url_list.jsonl` which was a snapshot I (@soskek) collected on Jan 19-20, 2019. You can use it if you'd like.
+Prepare URLs of available books. However, this repository already has a list as `url_list.jsonl` which was a snapshot I (@soskek) collected on July 25, 2019. You can use it if you'd like.
 
 ```
 python -u download_list.py > url_list.jsonl &
