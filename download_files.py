@@ -46,7 +46,7 @@ def write_txt(txt, out_path, num_words=None):
         pass
     elif num_words is None or \
             (num_words * 0.5 < counted_num_words < num_words * 1.5):
-        with open(out_path, "w") as txt_out:  # convert epub2txt and save
+        with open(out_path, "w", encoding='utf8') as txt_out:  # convert epub2txt and save
             txt_out.write(txt)
 
 
@@ -57,7 +57,7 @@ def main():
         os.makedirs(out_dir)
     filelist_path = args.list_path
 
-    lines = list(open(filelist_path).readlines())
+    lines = list(open(filelist_path, encoding='utf8').readlines())
 
     done_files = set([os.path.split(path)[-1]
                       for path in glob(os.path.join(out_dir, '*.txt'))])
