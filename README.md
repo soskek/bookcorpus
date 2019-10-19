@@ -1,6 +1,6 @@
 # Homemade BookCorpus
 
-You can reproduce BookCorpus by yourself.
+These are scripts to reproduce BookCorpus by yourself.
 
 [BookCorpus](http://yknzhu.wixsite.com/mbweb) is a popular large-scale text corpus, espetially for unsupervised learning of sentence encoders/decoders. However, BookCorpus is no longer distributed...
 
@@ -38,6 +38,11 @@ If you want to tokenize them into segmented words by Microsoft's [BlingFire](htt
 python make_sentlines.py out_txts | python tokenize_sentlines.py > all.tokenized.txt
 ```
 
+## Disclaimer
+
+For example, you can refer to terms of [smashwords.com](https://www.smashwords.com/about/tos).
+Please use the code responsibly and adhere to respective copyright and related laws. I am not responsible for any plagiarism or legal implication that rises as a result of this repository.
+
 ## Requirement
 
 - python3 is recommended
@@ -63,7 +68,7 @@ pip install -r requirements.txt
 
 ## Citation
 
-If you found this code useful, please cite it.
+If you found this code useful, please cite it with the URL.
 
 Also, the original papers which made the original BookCorpus are as follows:
 
