@@ -3,6 +3,14 @@
 import argparse
 import time
 
+
+headers = [
+    ("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"),
+    ("Accept-Encoding", "gzip, deflate, sdch, br"),
+    ("Accept-Language", "en-US,en;q=0.8"),
+    ("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"),
+]
+
 try:
     from cookielib import CookieJar
     cj = CookieJar()
@@ -18,6 +26,10 @@ except ImportError:
         urllib.request.HTTPCookieProcessor(cj))
     urlretrieve = urllib.request.urlretrieve
 
+from fake_useragent import UserAgent
+user_agent_genenerator = UserAgent()
+opener.addheaders = headers
+
 import epub2txt
 import os
 from progressbar import ProgressBar
@@ -25,9 +37,8 @@ from glob import glob
 import sys
 import json
 
-SLEEP_SEC = 0.05
-SUCCESS_SLEEP_SEC = 0.001
-RETRY_SLEEP_SEC = 1.
+SUCCESS_SLEEP_SEC = 2.
+RETRY_SLEEP_SEC = 3.
 MAX_OPEN_COUNT = 3
 
 parser = argparse.ArgumentParser()
@@ -89,6 +100,8 @@ def main():
                 # try to download .txt file
                 for try_count in range(MAX_OPEN_COUNT):
                     try:
+                        headers[-1] = ("User-Agent", user_agent_genenerator.random)
+                        opener.addheaders = headers
                         response = opener.open(data['txt'])
                         if try_count >= 1:
                             sys.stderr.write(

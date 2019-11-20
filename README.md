@@ -51,6 +51,7 @@ Please use the code responsibly and adhere to respective copyright and related l
 - blingfire
 - html2text
 - lxml
+- fake-useragent
 
 ```
 pip install -r requirements.txt
