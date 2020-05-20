@@ -1,5 +1,13 @@
 # Homemade BookCorpus
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+**Recently, clawling seems difficult. Consider another option like using [files hosted by unknown](https://github.com/soskek/bookcorpus/issues/24#issuecomment-556024973) at your own risk.**
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+-----------------
+
 These are scripts to reproduce BookCorpus by yourself.
 
 [BookCorpus](http://yknzhu.wixsite.com/mbweb) is a popular large-scale text corpus, espetially for unsupervised learning of sentence encoders/decoders. However, BookCorpus is no longer distributed...
