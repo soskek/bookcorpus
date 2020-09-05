@@ -83,6 +83,16 @@ pip install -r requirements.txt
 
 If you found this code useful, please cite it with the URL.
 
+```
+@misc{soskkobayashi2018bookcorpus,
+    author = {Sosuke Kobayashi},
+    title = {Homemade BookCorpus},
+    howpublished = {\url{https://github.com/BIGBALLON/cifar-10-cnn}},
+    year = {2018}
+}
+```
+
+
 Also, the original papers which made the original BookCorpus are as follows:
 
 Yukun Zhu, Ryan Kiros, Richard Zemel, Ruslan Salakhutdinov, Raquel Urtasun, Antonio Torralba, Sanja Fidler. **"[Aligning Books and Movies: Towards Story-like Visual Explanations by Watching Movies and Reading Books.](https://arxiv.org/abs/1506.06724)"** arXiv preprint arXiv:1506.06724, [ICCV 2015](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zhu_Aligning_Books_and_ICCV_2015_paper.pdf).
