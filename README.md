@@ -1,10 +1,14 @@
 # Homemade BookCorpus
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-**Recently, clawling seems difficult. Consider another option like using [files hosted by unknown](https://github.com/soskek/bookcorpus/issues/24#issuecomment-556024973) at your own risk.**
+**Clawling could be difficult due to some issues of the website. Also, please consider another option such as using publicly available files at your own risk.**
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+For example,
+- [a file by Shawn Presser](https://twitter.com/theshawwn/status/1301852133319294976) (It was crawled in September 2020, and each book was separately stored as a text file. Looks nice! Thank you [@shawwn](https://github.com/shawwn)!)
+- [a file by Igor Brigadir](https://twitter.com/IgorBrigadir/status/1095075607178870786) (While it could be similar to the original BookCorpus, all books seemed concatenated. And, I don't know the detail. Please see [some discussion](https://github.com/soskek/bookcorpus/issues/24#issuecomment-556024973) about the dataset or ask the distributer.)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 -----------------
 
