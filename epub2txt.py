@@ -146,6 +146,7 @@ class epub2txt():
         # fo = open("%s_%s.txt" % (title, author), "w")
         content = []
         for t in toc:
+            # this could be improved. see https://github.com/soskek/bookcorpus/issues/26
             html = file.read(ops + t.content.split("#")[0])
             text = html2text.html2text(html.decode("utf-8"))
             # fo.write("*"*(t.level+1) + " " + t.text.encode("utf-8")+"\n")
@@ -155,6 +156,7 @@ class epub2txt():
                            t.text + "\n")
             content.append(t.text + "{{{%d\n" % (t.level+1))
             content.append(text + "\n")
+
         # fo.close()
         file.close()
         return ''.join(content)
