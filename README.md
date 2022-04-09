@@ -9,7 +9,7 @@ For example,
 - [a file by Igor Brigadir](https://twitter.com/IgorBrigadir/status/1095075607178870786): While it could be similar to the original BookCorpus, all books seemed concatenated. And, I don't know the detail. Please see [some discussion](https://github.com/soskek/bookcorpus/issues/24#issuecomment-556024973) about the dataset or ask the distributer.
 - [a dataset class by huggingface/datasets](https://huggingface.co/datasets/bookcorpus): This internally accesses the file above (by Igor) but easy to use in some cases.
 
-And, [a paper by Jack Bandy, Nicholas Vincent](https://openreview.net/forum?id=Qd_eU1wvJeu) is also valuable for understanding how "BookCorpus" and its replicates include several deficiencies.
+And, [a paper by Jack Bandy and Nicholas Vincent](https://openreview.net/forum?id=Qd_eU1wvJeu) is also valuable for understanding how "BookCorpus" and its replicates include several deficiencies.
 
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
