@@ -90,7 +90,7 @@ If you found this code useful, please cite it with the URL.
 @misc{soskkobayashi2018bookcorpus,
     author = {Sosuke Kobayashi},
     title = {Homemade BookCorpus},
-    howpublished = {\url{https://github.com/BIGBALLON/cifar-10-cnn}},
+    howpublished = {\url{https://github.com/soskek/bookcorpus}},
     year = {2018}
 }
 ```
